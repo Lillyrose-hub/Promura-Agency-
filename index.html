@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Caption Library</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .controls {
+            padding: 30px;
+            background: #f7f9fc;
+            border-bottom: 1px solid #e0e6ed;
+        }
+
+        .controls-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .control-group {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .file-upload-wrapper {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .file-upload-wrapper input[type="file"] {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .file-upload-label {
+            display: block;
+            padding: 12px 20px;
+            background: #667eea;
+            color: white;
+            border-radius: 8px;
+            text-align: center;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+        .file-upload-label:hover {
+            background: #5a67d8;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e6ed;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            padding: 20px 30px;
+            background: #fafbfc;
+            border-bottom: 1px solid #e0e6ed;
+        }
+
+        .stat-card {
+            flex: 1;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #718096;
+            margin-top: 5px;
+        }
+
+        .captions-section {
+            padding: 30px;
+        }
+
+        #captions-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .caption-card {
+            background: white;
+            border: 2px solid #e0e6ed;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .caption-card:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+        }
+
+        .caption-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .caption-category {
+            background: #667eea;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .caption-usage {
+            color: #718096;
+            font-size: 0.85rem;
+        }
+
+        .caption-text {
+            color: #2d3748;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            min-height: 60px;
+        }
+
+        .caption-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .copy-btn, .delete-btn {
+            flex: 1;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .copy-btn {
+            background: #48bb78;
+            color: white;
+        }
+
+        .copy-btn:hover {
+            background: #38a169;
+        }
+
+        .delete-btn {
+            background: #f56565;
+            color: white;
+        }
+
+        .delete-btn:hover {
+            background: #e53e3e;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 60px;
+            color: #718096;
+            font-size: 1.1rem;
+        }
+
+        #message-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .message {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            animation: slideIn 0.3s ease-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-success {
+            background: #48bb78;
+            color: white;
+        }
+
+        .message-error {
+            background: #f56565;
+            color: white;
+        }
+
+        .message-info {
+            background: #4299e1;
+            color: white;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        #loading-indicator {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .controls-row {
+                flex-direction: column;
+            }
+
+            .stats {
+                flex-direction: column;
+            }
+
+            #captions-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📝 Smart Caption Library</h1>
+            <p>Upload, Search, and Manage Your Caption Collection</p>
+        </div>
+
+        <div class="controls">
+            <div class="controls-row">
+                <div class="control-group">
+                    <label for="excel-upload">Upload Excel File</label>
+                    <div class="file-upload-wrapper">
+                        <input type="file" id="excel-upload" accept=".xlsx,.xls">
+                        <label for="excel-upload" class="file-upload-label">
+                            📁 Choose Excel File
+                        </label>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="category-select">Filter by Category</label>
+                    <select id="category-select">
+                        <option value="">All Categories</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="search-input">Search Captions</label>
+                    <input type="text" id="search-input" placeholder="Type to search...">
+                </div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-value" id="total-captions">0</div>
+                <div class="stat-label">Total Captions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="total-categories">0</div>
+                <div class="stat-label">Categories</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="total-usage">0</div>
+                <div class="stat-label">Total Usage</div>
+            </div>
+        </div>
+
+        <div class="captions-section">
+            <div id="captions-container">
+                <p class="no-results">Upload an Excel file to get started!</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="message-container"></div>
+
+    <div id="loading-indicator">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <script src="frontend_integration.js"></script>
+    <script>
+        // Additional UI enhancements
+        document.addEventListener('DOMContentLoaded', () => {
+            // Update stats on load
+            updateStats();
+
+            // File upload visual feedback
+            const fileInput = document.getElementById('excel-upload');
+            const fileLabel = document.querySelector('.file-upload-label');
+
+            fileInput.addEventListener('change', (e) => {
+                const fileName = e.target.files[0]?.name || 'Choose Excel File';
+                fileLabel.textContent = `📁 ${fileName}`;
+            });
+        });
+
+        async function updateStats() {
+            try {
+                const api = new CaptionLibraryAPI();
+                const analytics = await api.getAnalytics();
+
+                document.getElementById('total-captions').textContent = analytics.total_captions || 0;
+                document.getElementById('total-categories').textContent = Object.keys(analytics.category_statistics || {}).length;
+                document.getElementById('total-usage').textContent = analytics.total_usage || 0;
+            } catch (error) {
+                console.error('Error updating stats:', error);
+            }
+        }
+
+        // Update stats after any changes
+        const originalShowMessage = CaptionLibraryUI.prototype.showMessage;
+        CaptionLibraryUI.prototype.showMessage = function(message, type) {
+            originalShowMessage.call(this, message, type);
+            if (type === 'success') {
+                updateStats();
+            }
+        };
+    </script>
+</body>
+</html>
