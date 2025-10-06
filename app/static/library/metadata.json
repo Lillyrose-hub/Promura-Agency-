@@ -1,0 +1,25 @@
+{
+  "images": [
+    {
+      "id": "promura_library_04012e7e",
+      "filename": "promura_library.png",
+      "original_name": "promura_library.png",
+      "type": "image",
+      "url": "/static/library/images/original/promura_library.png",
+      "thumbnail_url": "/static/library/images/thumbnails/promura_library_thumb.jpg",
+      "upload_date": "2025-09-30T23:55:33.336787",
+      "file_size": "885.2 KB",
+      "file_size_bytes": 906399,
+      "used_count": 1,
+      "last_used": "2025-09-30T23:55:33.336831",
+      "tags": [],
+      "description": "",
+      "dimensions": "1024x1024",
+      "width": 1024,
+      "height": 1024
+    }
+  ],
+  "videos": [],
+  "tags": [],
+  "total_items": 1
+}

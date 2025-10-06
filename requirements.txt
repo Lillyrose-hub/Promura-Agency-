@@ -1,0 +1,38 @@
+# PROMURA Dashboard Requirements
+# FastAPI and Web Framework
+fastapi==0.118.0
+uvicorn==0.37.0
+python-multipart==0.0.20
+jinja2==3.1.6
+aiofiles==24.1.0
+
+# Authentication and Security
+python-jose[cryptography]==3.5.0
+passlib[bcrypt]==1.7.4
+bcrypt==5.0.0
+PyJWT==2.10.1
+cryptography==46.0.2
+
+# Data Processing
+pandas==2.3.3
+numpy==2.3.3
+openpyxl==3.1.2
+
+# Web Automation
+selenium==4.8.3
+
+# HTTP Requests
+requests==2.32.3
+urllib3==1.26.20
+
+# Date/Time
+python-dateutil==2.9.0.post0
+pytz==2025.2
+
+# OnlyFans Integration (from local package)
+# OnlySnarf==3.11
+
+# Other Dependencies
+click==8.3.0
+python-dotenv==1.0.1
+Pillow==10.3.0

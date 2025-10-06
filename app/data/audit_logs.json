@@ -1,0 +1,1118 @@
+[
+  {
+    "timestamp": "2025-10-02T10:08:53.950364",
+    "username": "lea",
+    "action": "login",
+    "details": "User logged in successfully",
+    "ip_address": null,
+    "endpoint": null,
+    "method": null
+  },
+  {
+    "timestamp": "2025-10-02T10:14:51.842404",
+    "username": "lea",
+    "action": "login",
+    "details": "User logged in successfully",
+    "ip_address": null,
+    "endpoint": null,
+    "method": null
+  },
+  {
+    "timestamp": "2025-10-02T10:14:53.065195",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:14:53.069610",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/auth/me",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/auth/me",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:14:53.256360",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/captions/popular",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/captions/popular",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:14:53.269272",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:14:53.552316",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library/stats",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library/stats",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:14:55.834569",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:14:55.839041",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/auth/me",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/auth/me",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:14:55.841913",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:14:55.845809",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/captions/popular",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/captions/popular",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:14:56.043857",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library/stats",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library/stats",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:15:07.018260",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/auth/me",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/auth/me",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:15:07.026783",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:15:07.209717",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/captions/popular",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/captions/popular",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:15:07.219597",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:15:13.507326",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/auth/me",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/auth/me",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:15:13.508712",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:15:13.696763",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/captions/popular",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/captions/popular",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:15:13.711994",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:15:13.987800",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library/stats",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library/stats",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:15:18.271301",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/captions/popular",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/captions/popular",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:15:18.275839",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:15:18.277972",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:15:18.282540",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/auth/me",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/auth/me",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:15:18.486335",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library/stats",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library/stats",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:15:48.834113",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:16:00.671146",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/auth/me",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/auth/me",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:16:00.678863",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:16:00.687973",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/captions/popular",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/captions/popular",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:16:00.863171",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:16:01.056015",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library/stats",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library/stats",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:16:01.588104",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/captions/popular",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/captions/popular",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:16:01.591562",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:16:01.593562",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:16:01.598963",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/auth/me",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/auth/me",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:16:01.789221",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library/stats",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library/stats",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:16:31.889084",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:17:01.825656",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:17:49.380725",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/auth/me",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/auth/me",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:17:49.383676",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:17:49.569043",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/captions/popular",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/captions/popular",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:17:49.575960",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:17:49.775310",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library/stats",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library/stats",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:17:50.608849",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/captions/popular",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/captions/popular",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:17:50.614325",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:17:50.616606",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:17:50.621156",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/auth/me",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/auth/me",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:17:50.817302",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library/stats",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library/stats",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:17:56.225129",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/auth/me",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/auth/me",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:17:56.410708",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:17:56.415136",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/captions/popular",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/captions/popular",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:17:56.512721",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:17:56.712414",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library/stats",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library/stats",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:17:57.437925",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/captions/popular",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/captions/popular",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:17:57.442329",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:17:57.444891",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:17:57.448350",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/auth/me",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/auth/me",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:17:57.638486",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library/stats",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library/stats",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:18:27.970189",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:18:57.853378",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:19:27.856378",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:19:57.827711",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:20:27.819652",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:20:57.821723",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:21:27.843399",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:22:11.007372",
+    "username": "lea",
+    "action": "login",
+    "details": "User logged in successfully",
+    "ip_address": null,
+    "endpoint": null,
+    "method": null
+  },
+  {
+    "timestamp": "2025-10-02T10:22:28.822777",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:22:53.546561",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/team/users",
+    "ip_address": "127.0.0.1",
+    "endpoint": "/api/team/users",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:23:29.830174",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:23:47.941864",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/team/users",
+    "ip_address": "127.0.0.1",
+    "endpoint": "/api/team/users",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:24:30.833945",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:25:31.832039",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:26:56.509545",
+    "username": "lea",
+    "action": "login",
+    "details": "User logged in successfully",
+    "ip_address": null,
+    "endpoint": null,
+    "method": null
+  },
+  {
+    "timestamp": "2025-10-02T10:27:32.891638",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:27:53.841101",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/team/users",
+    "ip_address": "127.0.0.1",
+    "endpoint": "/api/team/users",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:28:01.735726",
+    "username": "lea",
+    "action": "api_call",
+    "details": "POST /api/team/add-user",
+    "ip_address": "127.0.0.1",
+    "endpoint": "/api/team/add-user",
+    "method": "POST"
+  },
+  {
+    "timestamp": "2025-10-02T10:28:02.128789",
+    "username": "lea",
+    "action": "add_user",
+    "details": "Added user test_editor as assistant",
+    "ip_address": null,
+    "endpoint": null,
+    "method": null
+  },
+  {
+    "timestamp": "2025-10-02T10:28:15.133949",
+    "username": "lea",
+    "action": "api_call",
+    "details": "DELETE /api/team/delete-user/test_editor",
+    "ip_address": "127.0.0.1",
+    "endpoint": "/api/team/delete-user/test_editor",
+    "method": "DELETE"
+  },
+  {
+    "timestamp": "2025-10-02T10:28:15.136177",
+    "username": "lea",
+    "action": "delete_user",
+    "details": "Deleted user test_editor",
+    "ip_address": null,
+    "endpoint": null,
+    "method": null
+  },
+  {
+    "timestamp": "2025-10-02T10:28:32.638051",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:28:51.346196",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/auth/me",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/auth/me",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:28:51.353236",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:28:51.537904",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/captions/popular",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/captions/popular",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:28:51.544991",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:28:51.740095",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library/stats",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library/stats",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:28:53.107196",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/auth/me",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/auth/me",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:28:53.112396",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/team/users",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/team/users",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:29:53.078262",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/auth/me",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/auth/me",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:29:53.085422",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:29:53.089381",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/captions/popular",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/captions/popular",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:29:53.268488",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:29:53.465374",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library/stats",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library/stats",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:29:55.350182",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:29:55.353650",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/auth/me",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/auth/me",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:29:55.358625",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/captions/popular",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/captions/popular",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:29:55.361882",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:29:55.545913",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library/stats",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library/stats",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:30:03.176666",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/auth/me",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/auth/me",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:30:03.367636",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:30:03.371555",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/captions/popular",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/captions/popular",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:30:03.384021",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:30:03.566880",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library/stats",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library/stats",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:30:20.157411",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:30:20.162732",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/auth/me",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/auth/me",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:30:20.343193",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/captions/popular",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/captions/popular",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:30:20.348385",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:30:20.545048",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library/stats",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library/stats",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:32:02.938310",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:32:02.942945",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/auth/me",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/auth/me",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:32:02.946124",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/captions/popular",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/captions/popular",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:32:03.140136",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:32:03.341822",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library/stats",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library/stats",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:32:04.288906",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:32:04.294248",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/captions/popular",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/captions/popular",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:32:04.300751",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/auth/me",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/auth/me",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:32:04.305086",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:32:04.509202",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library/stats",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library/stats",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:32:43.990086",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/auth/me",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/auth/me",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:32:43.997271",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:32:44.175565",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:32:44.182276",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/captions/popular",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/captions/popular",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:32:44.379578",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/library/stats",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/library/stats",
+    "method": "GET"
+  },
+  {
+    "timestamp": "2025-10-02T10:33:14.815993",
+    "username": "lea",
+    "action": "api_call",
+    "details": "GET /api/status",
+    "ip_address": "136.158.39.205",
+    "endpoint": "/api/status",
+    "method": "GET"
+  }
+]

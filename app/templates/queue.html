@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Queue - PROMURA</title>
+    <link rel="stylesheet" href="/static/style-elegant.css">
+</head>
+<body>
+    <!-- Background Logo -->
+    <div class="background-logo">
+        <img src="/static/images/Promura.png" alt="">
+    </div>
+
+    <!-- System Status Indicator -->
+    <div class="system-status" id="systemStatus">
+        <span class="status-dot online"></span>
+        <span class="status-text">System Online</span>
+    </div>
+
+    <!-- Navigation Sidebar -->
+    <nav class="sidebar-nav">
+        <div class="nav-brand">
+            <img src="/static/images/Promura.png" alt="PROMURA" class="nav-logo">
+            <span class="nav-title">PROMURA</span>
+        </div>
+        <div class="nav-links">
+            <a href="/" class="nav-item">
+                <span class="nav-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                </span>
+                <span class="nav-text">Dashboard</span>
+            </a>
+            <a href="/" class="nav-item">
+                <span class="nav-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                </span>
+                <span class="nav-text">Schedule Post</span>
+            </a>
+            <a href="/queue" class="nav-item active">
+                <span class="nav-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="8" y1="6" x2="21" y2="6"></line>
+                        <line x1="8" y1="12" x2="21" y2="12"></line>
+                        <line x1="8" y1="18" x2="21" y2="18"></line>
+                        <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                        <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                        <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                    </svg>
+                </span>
+                <span class="nav-text">View Queue</span>
+            </a>
+            <a href="/captions" class="nav-item">
+                <span class="nav-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"></path>
+                        <polyline points="9 12 12 15 16 10"></polyline>
+                    </svg>
+                </span>
+                <span class="nav-text">Caption Library</span>
+            </a>
+            <a href="/metrics" class="nav-item">
+                <span class="nav-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                </span>
+                <span class="nav-text">System Metrics</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container with-sidebar">
+        <!-- Container Shadow Logo -->
+        <div class="container-shadow-logo"></div>
+
+        <div class="header">
+            <div class="header-content">
+                <h1 class="elegant-title">Post Management</h1>
+                <p class="elegant-tagline">Manage your scheduled and completed posts</p>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('queue')">
+                    Queue <span class="badge" id="queueBadge">{{ scheduled_posts|length }}</span>
+                </button>
+                <button class="tab-btn" onclick="switchTab('history')">
+                    History <span class="badge" id="historyBadge">{{ completed_posts|length }}</span>
+                </button>
+                <a href="/" class="btn-new-post">New Post</a>
+            </div>
+
+            <!-- Queue Tab Content -->
+            <div id="queueTab" class="tab-content active">
+                {% if scheduled_posts %}
+                <div class="posts-list">
+                    {% for post in scheduled_posts|reverse %}
+                    <div class="post-card" data-post-id="{{ post.id }}">
+                        <div class="post-header">
+                            <span class="post-status {{ post.status }}">
+                                {% if post.status == 'scheduled' %}
+                                    <span class="status-icon">🕐</span> Scheduled
+                                {% elif post.status == 'posting' %}
+                                    <span class="status-icon">⚡</span> Posting
+                                {% elif post.status == 'failed' %}
+                                    <span class="status-icon">❌</span> Failed
+                                {% endif %}
+                            </span>
+                            <div class="post-actions">
+                                <button class="action-btn edit" onclick="editPost('{{ post.id }}')" title="Edit">✏️</button>
+                                <button class="action-btn cancel" onclick="cancelPost('{{ post.id }}')" title="Cancel">❌</button>
+                                <button class="action-btn delete" onclick="deletePost('{{ post.id }}')" title="Delete">🗑️</button>
+                            </div>
+                        </div>
+
+                        <div class="post-content">
+                            <p class="post-text">{{ post.content[:200] }}{% if post.content|length > 200 %}...{% endif %}</p>
+
+                            {% if post.models %}
+                            <div class="post-models">
+                                <span class="models-label">Models:</span>
+                                {% for model in post.models %}
+                                <span class="model-badge">{{ model }}</span>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+
+                            {% if post.media_files %}
+                            <div class="post-media">
+                                {% for file in post.media_files[:3] %}
+                                <div class="media-thumbnail">
+                                    {% if file.endswith(('.jpg', '.jpeg', '.png', '.gif')) %}
+                                    <img src="/{{ file }}" alt="Media">
+                                    {% else %}
+                                    <span class="video-icon">🎥</span>
+                                    {% endif %}
+                                </div>
+                                {% endfor %}
+                                {% if post.media_files|length > 3 %}
+                                <div class="media-more">+{{ post.media_files|length - 3 }}</div>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+
+                            <div class="post-meta">
+                                <span class="meta-item">
+                                    📅 {{ post.schedule_time if post.schedule_time else 'Immediate' }}
+                                </span>
+                                <span class="meta-item">
+                                    🕐 Created: {{ post.timestamp[:16] }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="empty-state">
+                    <h3>No scheduled posts</h3>
+                    <p>Your scheduled posts will appear here</p>
+                    <a href="/" class="btn">Schedule Your First Post</a>
+                </div>
+                {% endif %}
+            </div>
+
+            <!-- History Tab Content -->
+            <div id="historyTab" class="tab-content">
+                {% if completed_posts %}
+                <div class="posts-list">
+                    {% for post in completed_posts %}
+                    <div class="post-card completed" data-post-id="{{ post.id }}">
+                        <div class="post-header">
+                            <span class="post-status completed">
+                                <span class="status-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle;">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </span> Completed
+                            </span>
+                            <span class="completed-time">{{ post.completed_at[:16] if post.completed_at else post.timestamp[:16] }}</span>
+                        </div>
+
+                        <div class="post-content">
+                            <p class="post-text">{{ post.content[:200] }}{% if post.content|length > 200 %}...{% endif %}</p>
+
+                            {% if post.models %}
+                            <div class="post-models">
+                                <span class="models-label">Posted to:</span>
+                                {% for model in post.models %}
+                                <span class="model-badge">{{ model }}</span>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+
+                            {% if post.media_files %}
+                            <div class="post-media">
+                                {% for file in post.media_files[:3] %}
+                                <div class="media-thumbnail">
+                                    {% if file.endswith(('.jpg', '.jpeg', '.png', '.gif')) %}
+                                    <img src="/{{ file }}" alt="Media">
+                                    {% else %}
+                                    <span class="video-icon">🎥</span>
+                                    {% endif %}
+                                </div>
+                                {% endfor %}
+                                {% if post.media_files|length > 3 %}
+                                <div class="media-more">+{{ post.media_files|length - 3 }}</div>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+
+                            <div class="post-meta">
+                                <span class="meta-item">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 4px;">
+                                        <path d="M23 6l-9.5 9.5-5-5L1 18"></path>
+                                        <polyline points="17 6 23 6 23 12"></polyline>
+                                    </svg>
+                                    Performance: N/A
+                                </span>
+                                <span class="meta-item">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 4px;">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                    </svg>
+                                    Views: N/A
+                                </span>
+                                <span class="meta-item">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 4px;">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                                    </svg>
+                                    Likes: N/A
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="empty-state">
+                    <h3>No completed posts</h3>
+                    <p>Your completed posts will appear here</p>
+                    <a href="/" class="btn">Create Your First Post</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditModal()">&times;</span>
+            <h2>Edit Post</h2>
+            <form id="editForm">
+                <input type="hidden" id="editPostId">
+                <div class="form-group">
+                    <label>Content</label>
+                    <textarea id="editContent" rows="5"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Schedule Time</label>
+                    <input type="datetime-local" id="editScheduleTime">
+                </div>
+                <button type="submit" class="btn">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching
+        function switchTab(tab) {
+            const queueTab = document.getElementById('queueTab');
+            const historyTab = document.getElementById('historyTab');
+            const tabBtns = document.querySelectorAll('.tab-btn');
+
+            if (tab === 'queue') {
+                queueTab.classList.add('active');
+                historyTab.classList.remove('active');
+                tabBtns[0].classList.add('active');
+                tabBtns[1].classList.remove('active');
+            } else {
+                historyTab.classList.add('active');
+                queueTab.classList.remove('active');
+                tabBtns[1].classList.add('active');
+                tabBtns[0].classList.remove('active');
+            }
+        }
+
+        // Cancel post
+        async function cancelPost(postId) {
+            if (!confirm('Are you sure you want to cancel this post?')) return;
+
+            try {
+                const response = await fetch(`/api/queue/${postId}/cancel`, {
+                    method: 'POST'
+                });
+
+                if (response.ok) {
+                    location.reload();
+                } else {
+                    alert('Failed to cancel post');
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        }
+
+        // Delete post
+        async function deletePost(postId) {
+            if (!confirm('Are you sure you want to delete this post? This action cannot be undone.')) return;
+
+            try {
+                const response = await fetch(`/api/queue/${postId}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    location.reload();
+                } else {
+                    alert('Failed to delete post');
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        }
+
+        // Edit post
+        function editPost(postId) {
+            const modal = document.getElementById('editModal');
+            const postCard = document.querySelector(`[data-post-id="${postId}"]`);
+            const postText = postCard.querySelector('.post-text').textContent;
+
+            document.getElementById('editPostId').value = postId;
+            document.getElementById('editContent').value = postText;
+            modal.style.display = 'block';
+        }
+
+        // Close edit modal
+        function closeEditModal() {
+            document.getElementById('editModal').style.display = 'none';
+        }
+
+        // Save edit
+        document.getElementById('editForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const postId = document.getElementById('editPostId').value;
+            const content = document.getElementById('editContent').value;
+            const scheduleTime = document.getElementById('editScheduleTime').value;
+
+            try {
+                const response = await fetch(`/api/queue/${postId}/edit`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        content,
+                        models: [], // Keep existing models
+                        schedule_time: scheduleTime
+                    })
+                });
+
+                if (response.ok) {
+                    location.reload();
+                } else {
+                    alert('Failed to update post');
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        });
+
+        // Check for hash in URL to switch tabs
+        if (window.location.hash === '#history') {
+            switchTab('history');
+        }
+
+        // Update system status
+        async function updateSystemStatus() {
+            try {
+                const response = await fetch('/api/status');
+                const data = await response.json();
+
+                const statusDot = document.querySelector('.status-dot');
+                const statusText = document.querySelector('.status-text');
+
+                if (data.online) {
+                    statusDot.className = 'status-dot online';
+                    statusText.textContent = 'System Online';
+                } else {
+                    statusDot.className = 'status-dot offline';
+                    statusText.textContent = 'System Offline';
+                }
+
+                // Update badges
+                document.getElementById('queueBadge').textContent = data.queue_count;
+                document.getElementById('historyBadge').textContent = data.completed_count;
+            } catch (error) {
+                console.error('Error updating status:', error);
+            }
+        }
+
+        // Auto-refresh every 30 seconds
+        setInterval(updateSystemStatus, 30000);
+
+        // Initial status update
+        updateSystemStatus();
+    </script>
+    <script src="/static/icons.js"></script>
+    <script src="/static/sidebar.js"></script>
+</body>
+</html>

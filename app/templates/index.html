@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROMURA Dashboard - Multi-model Scheduling System</title>
+    <link rel="stylesheet" href="/static/style-elegant.css">
+    <script src="/static/auth.js"></script>
+</head>
+<body>
+    <!-- Background Logo -->
+    <div class="background-logo">
+        <img src="/static/images/Promura.png" alt="">
+    </div>
+
+    <!-- System Status Indicator -->
+    <div class="system-status" id="systemStatus">
+        <span class="status-dot online"></span>
+        <span class="status-text">System Online</span>
+    </div>
+
+    <!-- Navigation Sidebar -->
+    <nav class="sidebar-nav">
+        <div class="nav-brand">
+            <img src="/static/images/Promura.png" alt="PROMURA" class="nav-logo">
+            <span class="nav-title">PROMURA</span>
+        </div>
+        <div class="nav-links">
+            <a href="/" class="nav-item active">
+                <span class="nav-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                </span>
+                <span class="nav-text">Dashboard</span>
+            </a>
+            <a href="/" class="nav-item">
+                <span class="nav-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                </span>
+                <span class="nav-text">Schedule Post</span>
+            </a>
+            <a href="/queue" class="nav-item">
+                <span class="nav-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="8" y1="6" x2="21" y2="6"></line>
+                        <line x1="8" y1="12" x2="21" y2="12"></line>
+                        <line x1="8" y1="18" x2="21" y2="18"></line>
+                        <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                        <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                        <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                    </svg>
+                </span>
+                <span class="nav-text">View Queue</span>
+            </a>
+            <a href="/captions" class="nav-item">
+                <span class="nav-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"></path>
+                        <polyline points="9 12 12 15 16 10"></polyline>
+                    </svg>
+                </span>
+                <span class="nav-text">Caption Library</span>
+            </a>
+            <a href="/metrics" class="nav-item">
+                <span class="nav-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="20" x2="18" y2="10"></line>
+                        <line x1="12" y1="20" x2="12" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="14"></line>
+                    </svg>
+                </span>
+                <span class="nav-text">System Metrics</span>
+            </a>
+            <a href="/team" class="nav-item">
+                <span class="nav-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </span>
+                <span class="nav-text">Team Management</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container with-sidebar">
+        <!-- Container Shadow Logo -->
+        <div class="container-shadow-logo"></div>
+
+        <div class="header">
+            <div class="header-content">
+                <h1 class="elegant-title">PROMURA</h1>
+                <p class="elegant-tagline">Multi-model Scheduling System</p>
+                <p class="elegant-description">Enterprise-grade content management for professional creators and agencies</p>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <form id="postForm" enctype="multipart/form-data">
+                <!-- Multi-Model Selector -->
+                <div class="form-group">
+                    <label for="modelSelector">Target Models</label>
+                    <div class="model-selector-wrapper">
+                        <div class="model-selector" id="modelSelector">
+                            <div class="model-selector-input">
+                                <input type="text" id="modelSearch" placeholder="Search models...">
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                            <div class="model-dropdown" id="modelDropdown">
+                                <div class="model-actions">
+                                    <button type="button" class="select-all-btn" onclick="selectAllModels()">Select All</button>
+                                    <button type="button" class="deselect-all-btn" onclick="deselectAllModels()">Deselect All</button>
+                                </div>
+                                <div class="model-list" id="modelList">
+                                    {% for model in models %}
+                                    <div class="model-item" data-model-id="{{ model.id }}" data-model-name="{{ model.name }}">
+                                        <input type="checkbox" id="model-{{ model.id }}" value="{{ model.name }}" class="model-checkbox">
+                                        <label for="model-{{ model.id }}">
+                                            <img src="{{ model.avatar }}" alt="{{ model.name }}" class="model-avatar" onerror="this.src='/static/models/default.jpg'">
+                                            <span class="model-name">{{ model.name }}</span>
+                                            {% if model.status == 'active' %}
+                                            <span class="model-status active">●</span>
+                                            {% else %}
+                                            <span class="model-status inactive">●</span>
+                                            {% endif %}
+                                        </label>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="selected-models" id="selectedModels"></div>
+                    </div>
+                </div>
+
+                <!-- Post Content -->
+                <div class="form-group">
+                    <label for="content">Post Content</label>
+                    <textarea
+                        id="content"
+                        name="content"
+                        placeholder="Share your thoughts, stories, or updates..."
+                        required
+                    ></textarea>
+
+                    <!-- Caption Suggestions -->
+                    <div class="caption-suggestions-compact">
+                        <div class="suggestions-header">
+                            <small style="color: var(--text-secondary); font-size: 0.75rem;">💡 Quick Captions</small>
+                            <a href="/captions-compact" style="font-size: 0.7rem; color: var(--accent-primary);">View Library</a>
+                        </div>
+                        <div class="suggestion-pills-container" id="suggestionPills">
+                            <!-- Will be populated from caption library -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Media Selection Section -->
+                <div class="form-group">
+                    <label>Media Files</label>
+
+                    <!-- Media Selection Options -->
+                    <div class="media-selection-options">
+                        <button type="button" class="btn-media-option" onclick="openFileUpload()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            Upload New Files
+                        </button>
+                        <button type="button" class="btn-media-option" onclick="openLibraryForPost()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                            Choose from Library
+                        </button>
+                    </div>
+
+                    <!-- Hidden file input -->
+                    <input
+                        type="file"
+                        id="media_files"
+                        name="media_files"
+                        multiple
+                        accept="image/*,video/*"
+                        style="display: none;"
+                    >
+
+                    <!-- Selected Media Preview -->
+                    <div class="selected-media-preview" id="selectedMediaPreview">
+                        <div class="media-preview-header" style="display: none;">
+                            <strong>Selected Media:</strong>
+                            <span id="mediaCount">0 files</span>
+                        </div>
+                        <div class="media-preview-grid" id="mediaPreviewGrid"></div>
+                    </div>
+                </div>
+
+                <!-- Post Creation Flow -->
+                <div class="post-creation-flow">
+                    <!-- IMMEDIATE ACTION SECTION -->
+                    <div class="action-section immediate-action">
+                        <h4 class="section-title">Post Immediately</h4>
+                        <button type="submit" class="btn-boost-now" onclick="submitPost(event, 'now')">
+                            BOOST NOW
+                        </button>
+                        <p class="action-description">Post immediately to all selected models</p>
+                    </div>
+
+                    <!-- OR DIVIDER -->
+                    <div class="action-divider">
+                        <span>OR</span>
+                    </div>
+
+                    <!-- SCHEDULING SECTION -->
+                    <div class="action-section scheduling-action">
+                        <h4 class="section-title">Schedule for Later</h4>
+                        <div class="schedule-controls">
+                            <input
+                                type="datetime-local"
+                                id="schedule_time"
+                                name="schedule_time"
+                                class="schedule-input"
+                                placeholder="Choose date and time"
+                            >
+                            <button type="submit" class="btn-schedule" onclick="submitPost(event, 'schedule')">
+                                <svg class="action-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                Schedule Post
+                            </button>
+                        </div>
+                        <p class="action-description">Set specific date and time for automated posting</p>
+                    </div>
+                </div>
+            </form>
+
+            <div class="feature-grid">
+                <a href="/queue" class="feature-card">
+                    <h3>View Queue</h3>
+                    <p id="queueCount">0 scheduled posts</p>
+                </a>
+                <a href="/queue#history" class="feature-card">
+                    <h3>Post History</h3>
+                    <p id="historyCount">0 completed posts</p>
+                </a>
+                <a href="/metrics" class="feature-card">
+                    <h3>System Metrics</h3>
+                    <p id="metricsStatus">View performance data</p>
+                </a>
+            </div>
+
+            <!-- Content Library Section -->
+            <section class="content-library-section">
+                <div class="library-header">
+                    <h2 class="library-title">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                        Content Library
+                    </h2>
+                    <p class="library-subtitle">Reuse previously uploaded media</p>
+                </div>
+
+                <div class="library-controls">
+                    <input type="text" class="library-search" id="librarySearch" placeholder="Search library...">
+                    <select class="library-sort" id="librarySort">
+                        <option value="recent">Most Recent</option>
+                        <option value="popular">Most Used</option>
+                        <option value="name">Name A-Z</option>
+                    </select>
+                </div>
+
+                <div class="library-actions">
+                    <button class="btn-library-filter active" data-filter="all">All Media</button>
+                    <button class="btn-library-filter" data-filter="image">Images</button>
+                    <button class="btn-library-filter" data-filter="video">Videos</button>
+                    <button class="btn-library-upload" onclick="openLibraryUpload()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        Upload New
+                    </button>
+                </div>
+
+                <div class="library-stats">
+                    <span id="libraryTotalItems">0 items</span>
+                    <span id="libraryTotalSize">0 MB</span>
+                </div>
+
+                <div class="library-grid" id="libraryGrid">
+                    <!-- Media cards will be dynamically added here -->
+                    <div class="library-empty">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                        <p>No media in library yet</p>
+                        <button class="btn-library-first" onclick="openLibraryUpload()">Upload First Media</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Notification Area -->
+    <div id="notifications"></div>
+
+    <!-- Library Selection Modal -->
+    <div class="library-selection-modal" id="librarySelectionModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Choose from Content Library</h3>
+                <span class="modal-close" onclick="closeLibraryModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="library-modal-controls">
+                    <input type="text" id="modalLibrarySearch" placeholder="Search library..." class="library-modal-search">
+                    <div class="library-modal-filters">
+                        <button class="btn-modal-filter active" data-filter="all">All</button>
+                        <button class="btn-modal-filter" data-filter="image">Images</button>
+                        <button class="btn-modal-filter" data-filter="video">Videos</button>
+                    </div>
+                </div>
+                <div class="library-modal-grid" id="libraryModalGrid">
+                    <!-- Library items will be loaded here -->
+                </div>
+                <div class="modal-selection-footer">
+                    <span id="modalSelectionCount">0 selected</span>
+                    <button class="btn-add-selected" onclick="addSelectedToPost()">Add Selected to Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/icons.js"></script>
+    <script src="/static/sidebar.js"></script>
+    <script src="/static/dashboard.js"></script>
+    <script src="/static/content-library.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+  "lea": {
+    "password": "$2b$12$U1YBEoxU3Q3tt0JhT6yJqOjmxinKd76evFb2z58KM7d60dYnjcP6.",
+    "role": "owner",
+    "permissions": [
+      "all"
+    ],
+    "created_at": "2025-10-02T10:08:41.615735",
+    "full_name": "Lea (Owner)",
+    "email": "lea@promura.com",
+    "active": true
+  },
+  "social_manager": {
+    "password": "$2b$12$3tkjj2B.BB1103eJrkvTdejUYjFGKUdVI7WspNqArbS3qp35T21xW",
+    "role": "manager",
+    "permissions": [
+      "schedule",
+      "view",
+      "edit",
+      "queue",
+      "captions",
+      "metrics"
+    ],
+    "created_at": "2025-10-02T10:08:41.971201",
+    "full_name": "Social Media Manager",
+    "email": "manager@promura.com",
+    "active": true
+  },
+  "content_assistant": {
+    "password": "$2b$12$McfQjVPi9lT3VzAWEVlToeP7ShBm01b44Bdo2Ff8NV/tlTUXUXB3O",
+    "role": "assistant",
+    "permissions": [
+      "view",
+      "schedule",
+      "captions"
+    ],
+    "created_at": "2025-10-02T10:08:42.326856",
+    "full_name": "Content Assistant",
+    "email": "assistant@promura.com",
+    "active": true
+  }
+}

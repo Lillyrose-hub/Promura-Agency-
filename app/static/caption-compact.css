@@ -1,0 +1,490 @@
+/* Ultra-Compact Caption Library Styles */
+
+:root {
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #151520;
+    --bg-card: #1e1e2e;
+    --bg-hover: #2a2a3a;
+    --border: #334155;
+    --border-hover: #475569;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --accent-primary: #FFDEE2;
+    --accent-secondary: #FFE8EC;
+    --accent-hover: #FFC4CC;
+    --accent-gradient: linear-gradient(135deg, #FFDEE2 0%, #FFE8EC 100%);
+    --success: #10b981;
+    --warning: #f59e0b;
+    --error: #ef4444;
+}
+
+/* Ultra-Compact Header Section */
+.library-header-ultra-compact {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.library-title {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.controls-inline {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.count-badge {
+    background: var(--accent-gradient);
+    color: var(--bg-primary);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Mini Controls */
+.btn-mini {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-mini:hover {
+    background: var(--bg-hover);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.input-mini {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    width: 120px;
+}
+
+.input-mini:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+}
+
+.select-mini {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 4px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.btn-add-mini {
+    background: var(--accent-gradient);
+    border: none;
+    color: var(--bg-primary);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    min-width: 24px;
+}
+
+.btn-add-mini:hover {
+    background: var(--accent-hover);
+    box-shadow: 0 2px 6px rgba(255, 222, 226, 0.2);
+}
+
+.search-mini {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    width: 60px;
+    transition: width 0.3s ease;
+}
+
+.search-mini:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    width: 120px;
+}
+
+.upload-status-text {
+    font-size: 0.75rem;
+    color: var(--success);
+}
+
+/* Quick Add Compact */
+.quick-add-compact {
+    display: flex;
+    gap: 6px;
+}
+
+.input-compact {
+    flex: 1;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    min-width: 200px;
+}
+
+.input-compact:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+}
+
+.select-compact {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.btn-add-compact {
+    background: var(--accent-gradient);
+    border: none;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-add-compact:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 0, 110, 0.3);
+}
+
+/* Search Compact */
+.search-compact {
+    position: relative;
+}
+
+.search-input-compact {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 6px 12px 6px 28px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    width: 180px;
+    transition: width 0.3s ease;
+}
+
+.search-input-compact:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    width: 240px;
+}
+
+/* Inline Filter Pills */
+.filter-pills-inline {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 8px;
+    padding: 0;
+}
+
+.pill-mini {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+}
+
+.pill-mini:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.pill-mini.active {
+    background: var(--accent-gradient);
+    border-color: transparent;
+    color: var(--bg-primary);
+    font-weight: 600;
+}
+
+/* Caption Grid - Ultra Compact */
+.caption-grid-ultra {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 4px;
+    margin-top: 4px;
+    max-height: calc(100vh - 180px);
+    overflow-y: auto;
+    padding: 0;
+}
+
+.caption-card-compact {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 0.75rem;
+    line-height: 1.3;
+    color: var(--text-primary);
+    transition: all 0.15s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.caption-card-compact:hover {
+    border-color: var(--accent-primary);
+    background: var(--bg-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 222, 226, 0.15);
+}
+
+.caption-text {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+}
+
+.caption-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 6px;
+    border-top: 1px solid var(--border);
+}
+
+.caption-category {
+    background: rgba(255, 222, 226, 0.15);
+    color: var(--accent-primary);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.caption-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.caption-action {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 2px;
+    transition: color 0.2s ease;
+}
+
+.caption-action:hover {
+    color: var(--accent-primary);
+}
+
+.caption-usage {
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* No empty state - captions grid will just be empty */
+
+/* Post Composer Integration */
+.composer-integration {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-top: 16px;
+}
+
+.composer-integration h5 {
+    margin: 0 0 8px 0;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.suggestions-minimal {
+    background: var(--bg-secondary);
+    border-radius: 6px;
+    padding: 8px;
+}
+
+.suggestion-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.pill {
+    background: var(--accent-gradient);
+    color: var(--bg-primary);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.pill:hover {
+    transform: translateY(-1px);
+    background: var(--accent-hover);
+    box-shadow: 0 2px 8px rgba(255, 222, 226, 0.2);
+}
+
+/* Notification Toast */
+.notification-toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.notification-toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.notification-toast.success {
+    border-color: var(--success);
+    background: rgba(0, 214, 143, 0.1);
+}
+
+.notification-toast.error {
+    border-color: var(--error);
+    background: rgba(255, 61, 113, 0.1);
+}
+
+.toast-icon {
+    font-size: 1.2rem;
+}
+
+.toast-message {
+    color: var(--text-primary);
+    font-size: 0.85rem;
+}
+
+/* Copy Toast */
+.copy-toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--success);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.copy-toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* Scrollbar Styling */
+.caption-grid-compact::-webkit-scrollbar {
+    width: 6px;
+}
+
+.caption-grid-compact::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: 3px;
+}
+
+.caption-grid-compact::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+}
+
+.caption-grid-compact::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .controls-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .caption-grid-compact {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .caption-grid-compact {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .quick-add-compact {
+        flex-direction: column;
+    }
+
+    .input-compact {
+        width: 100%;
+    }
+}
