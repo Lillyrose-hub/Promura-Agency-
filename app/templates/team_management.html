@@ -416,6 +416,119 @@
             background: rgba(255, 255, 255, 0.1);
             transform: translateX(-4px);
         }
+
+        /* Edit User Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.98) 0%, rgba(30, 30, 30, 0.98) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, #999 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .modal-close {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: rgba(255, 59, 48, 0.1);
+            border: 1px solid rgba(255, 59, 48, 0.3);
+            color: #ff6b63;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 59, 48, 0.2);
+            transform: scale(1.1);
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .modal-button {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-button.primary {
+            background: linear-gradient(135deg, #7877c6 0%, #ff77c6 100%);
+            color: white;
+        }
+
+        .modal-button.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(120, 119, 198, 0.3);
+        }
+
+        .modal-button.secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .modal-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
     </style>
 </head>
 <body>
@@ -519,8 +632,8 @@
                         <label class="form-label" for="newRole">Role</label>
                         <select id="newRole" class="form-select" required onchange="updatePermissions()">
                             <option value="">Select Role</option>
-                            <option value="manager">Manager</option>
-                            <option value="assistant">Assistant</option>
+                            <option value="manager">Management</option>
+                            <option value="assistant">Content Assistant</option>
                         </select>
                         <div id="permissionsList" class="permission-chips"></div>
                     </div>
@@ -545,6 +658,62 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Edit User Modal -->
+    <div id="editUserModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Edit Team Member</h2>
+                <button class="modal-close" onclick="closeEditModal()">×</button>
+            </div>
+
+            <form id="editUserForm" onsubmit="saveUserEdit(event)">
+                <input type="hidden" id="editUsername">
+
+                <div class="form-group">
+                    <label class="form-label" for="editFullName">Full Name</label>
+                    <input
+                        type="text"
+                        id="editFullName"
+                        class="form-input"
+                        placeholder="Full Name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="editEmail">Email</label>
+                    <input
+                        type="email"
+                        id="editEmail"
+                        class="form-input"
+                        placeholder="email@example.com"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="editRole">Role</label>
+                    <select id="editRole" class="form-select" required onchange="updateEditPermissions()">
+                        <option value="">Select Role</option>
+                        <option value="owner">Owner</option>
+                        <option value="manager">Management</option>
+                        <option value="assistant">Content Assistant</option>
+                    </select>
+                    <div id="editPermissionsList" class="permission-chips"></div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="modal-button secondary" onclick="closeEditModal()">
+                        Cancel
+                    </button>
+                    <button type="submit" class="modal-button primary" id="saveEditButton">
+                        Save Changes
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -584,7 +753,15 @@
                 return;
             }
 
-            container.innerHTML = users.map(user => `
+            container.innerHTML = users.map(user => {
+                const roleDisplayMap = {
+                    'owner': 'Owner',
+                    'manager': 'Management',
+                    'assistant': 'Content Assistant'
+                };
+                const roleDisplay = roleDisplayMap[user.role] || user.role;
+
+                return `
                 <div class="user-card">
                     <div class="user-header">
                         <div class="user-name">
@@ -592,7 +769,7 @@
                             <span>${user.full_name || user.username}</span>
                             ${user.username === auth.getUser()?.username ? '<span style="color: #777; font-size: 12px;">(You)</span>' : ''}
                         </div>
-                        <span class="user-role role-${user.role}">${user.role}</span>
+                        <span class="user-role role-${user.role}">${roleDisplay}</span>
                     </div>
 
                     <div class="user-details">
@@ -629,7 +806,8 @@
                     </div>
                     ` : ''}
                 </div>
-            `).join('');
+            `;
+            }).join('');
         }
 
         // Update statistics
@@ -739,10 +917,109 @@
             }
         }
 
-        // Edit user (placeholder)
+        // Edit user
         function editUser(username) {
-            alert(`Edit functionality for ${username} coming soon!`);
+            const user = users.find(u => u.username === username);
+            if (!user) {
+                showAlert('error', 'User not found');
+                return;
+            }
+
+            // Populate modal with user data
+            document.getElementById('editUsername').value = username;
+            document.getElementById('editFullName').value = user.full_name || '';
+            document.getElementById('editEmail').value = user.email || '';
+            document.getElementById('editRole').value = user.role || '';
+
+            // Update permissions display
+            updateEditPermissions();
+
+            // Show modal
+            document.getElementById('editUserModal').classList.add('show');
         }
+
+        // Close edit modal
+        function closeEditModal() {
+            document.getElementById('editUserModal').classList.remove('show');
+            document.getElementById('editUserForm').reset();
+        }
+
+        // Update permissions display in edit modal
+        function updateEditPermissions() {
+            const role = document.getElementById('editRole').value;
+            const permissionsDiv = document.getElementById('editPermissionsList');
+
+            const permissionMap = {
+                'owner': ['all'],
+                'manager': ['schedule', 'view', 'edit', 'queue', 'captions', 'metrics'],
+                'assistant': ['view', 'schedule', 'captions']
+            };
+
+            if (role && permissionMap[role]) {
+                permissionsDiv.innerHTML = permissionMap[role].map(p =>
+                    `<span class="chip">${p}</span>`
+                ).join('');
+            } else {
+                permissionsDiv.innerHTML = '';
+            }
+        }
+
+        // Save user edit
+        async function saveUserEdit(event) {
+            event.preventDefault();
+
+            const button = document.getElementById('saveEditButton');
+            button.disabled = true;
+            button.textContent = 'Saving...';
+
+            const username = document.getElementById('editUsername').value;
+            const updateData = {
+                full_name: document.getElementById('editFullName').value,
+                email: document.getElementById('editEmail').value,
+                role: document.getElementById('editRole').value
+            };
+
+            // Add permissions based on role
+            const permissionMap = {
+                'owner': ['all'],
+                'manager': ['schedule', 'view', 'edit', 'queue', 'captions', 'metrics'],
+                'assistant': ['view', 'schedule', 'captions']
+            };
+            updateData.permissions = permissionMap[updateData.role] || ['view'];
+
+            try {
+                const response = await auth.authFetch(`/api/team/update-user/${username}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(updateData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    showAlert('success', result.message);
+                    closeEditModal();
+                    loadUsers();
+                } else {
+                    showAlert('error', result.detail || result.message || 'Failed to update user');
+                }
+            } catch (error) {
+                console.error('Error updating user:', error);
+                showAlert('error', 'Failed to update user. Please try again.');
+            } finally {
+                button.disabled = false;
+                button.textContent = 'Save Changes';
+            }
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('editUserModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeEditModal();
+            }
+        });
 
         // Format date
         function formatDate(dateString) {
