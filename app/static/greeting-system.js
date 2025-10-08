@@ -160,6 +160,11 @@ async function initGreetingSystem() {
         // Show the name with fade-in
         await fadeIn(nameElement, 400);
 
+        // Add blinking cursor after exclamation mark
+        setTimeout(() => {
+            nameElement.classList.add('show-cursor');
+        }, 500);
+
         // GUARANTEE quotes display - with fallback
         if (motivationalQuotes.length === 0) {
             // Fallback quotes if API fails

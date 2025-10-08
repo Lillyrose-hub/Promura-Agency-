@@ -2883,25 +2883,16 @@ small {
    ELEGANT ANIMATED GREETING HEADER SYSTEM
    ============================================= */
 
-/* Greeting Container - Clean & Fast */
+/* Greeting Container - Clean & Minimal */
 .greeting-header {
     position: relative;
-    padding: 30px 0 20px;
-    margin-bottom: 30px;
+    padding: 25px 0 15px;
+    margin-bottom: 20px;
     text-align: center;
     overflow: hidden;
 }
 
-@keyframes elegantEntrance {
-    from {
-        opacity: 0;
-        transform: translateY(30px) scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
+/* Removed animations for performance */
 
 /* Animated Greeting Text */
 .greeting-container {
@@ -2919,52 +2910,78 @@ small {
     margin-bottom: 24px;
 }
 
-/* Greeting Text - Bold & Sharp */
+/* Greeting Text - Clear & Sharp */
 #animatedGreeting {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #e0e0e0;
-    letter-spacing: 0.05em;
+    font-family: 'Playfair Display', 'Lora', serif;
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: #d4c5e0;
+    letter-spacing: 0.02em;
     position: relative;
-    line-height: 1.4;
+    line-height: 1.2;
 }
 
 /* Typing cursor effect - elegant and subtle */
 #animatedGreeting.typing::after {
     content: '|';
     animation: elegantBlink 1s ease-in-out infinite;
-    margin-left: 4px;
-    opacity: 0.4;
-    color: #c0c0c0;
+    margin-left: 6px;
+    opacity: 0.7;
+    color: #c77dff;
 }
 
 @keyframes elegantBlink {
-    0%, 49% { opacity: 0.4; }
+    0%, 49% { opacity: 0.7; }
     50%, 100% { opacity: 0; }
 }
 
-/* Highlighted Name - Bold & Clear */
+/* Highlighted Name - Sharp Brand Gradient */
 #highlightedName {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
-    font-size: 3rem;
-    font-weight: 900;
-    color: #f8f8f8;
-    letter-spacing: 0.03em;
+    font-family: 'Montserrat', 'Inter', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
     position: relative;
     opacity: 0;
     line-height: 1.2;
+    background: linear-gradient(135deg, #a99de8 0%, #e0b3d6 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* Remove unnecessary animations for performance */
+/* Exclamation mark and cursor after name */
+#highlightedName::after {
+    content: '!';
+    color: #ff77c6;
+    font-weight: 700;
+}
 
-/* Motivational Quote Container - Clean & Fast */
+/* Blinking cursor after exclamation */
+#highlightedName.show-cursor::after {
+    animation: nameCursorBlink 1s ease-in-out infinite;
+}
+
+@keyframes nameCursorBlink {
+    0%, 49% {
+        content: '! |';
+        opacity: 1;
+    }
+    50%, 100% {
+        content: '!';
+        opacity: 1;
+    }
+}
+
+/* Animations removed for performance */
+
+/* Motivational Quote Container - Clean & Minimal */
 .quote-container {
     position: relative;
     z-index: 2;
     max-width: 700px;
     margin: 0 auto;
-    padding: 20px 20px;
+    padding: 10px 20px;
 }
 
 #rotatingQuote {
@@ -2973,181 +2990,136 @@ small {
     position: relative;
 }
 
-/* Quote text - Bold and clear */
+/* Quote text - Sharp & Clear */
 .quote-text {
     display: block;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #f0f0f0;
-    line-height: 1.6;
-    margin-bottom: 12px;
+    font-family: 'Lora', 'Georgia', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    font-style: italic;
+    color: #e8eaed;
+    line-height: 1.7;
+    margin-bottom: 8px;
     letter-spacing: 0.01em;
     text-align: center;
     position: relative;
     padding: 0 10px;
 }
 
-/* Author attribution - Bold and simple */
+/* Typewriter cursor for quote text */
+.quote-text.typing::after {
+    content: '|';
+    animation: cursorBlink 0.8s ease-in-out infinite;
+    margin-left: 3px;
+    color: #c77dff;
+    font-style: normal;
+    font-weight: 600;
+}
+
+@keyframes cursorBlink {
+    0%, 49% { opacity: 0.8; }
+    50%, 100% { opacity: 0; }
+}
+
+/* Author attribution - Clear */
 .quote-author {
     display: block;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
-    font-size: 0.85rem;
-    color: #b0b0b0;
-    font-weight: 600;
-    letter-spacing: 0.05em;
+    font-family: 'Montserrat', 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #b4a5c7;
+    font-weight: 500;
+    letter-spacing: 0.03em;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 6px;
 }
 
 /* Clean - removed all animations for performance */
 
-/* Responsive Design for Elegant Greeting Header */
+/* Responsive Design for Sharp Greeting Header */
 @media (max-width: 1024px) {
     .greeting-header {
-        padding: 50px 0 30px;
+        padding: 20px 20px 15px;
     }
 
     #animatedGreeting {
-        font-size: 1.6rem;
+        font-size: 2.4rem;
     }
 
     #highlightedName {
-        font-size: 3rem;
+        font-size: 2.8rem;
     }
 
     .quote-text {
-        font-size: 1.3rem;
+        font-size: 1rem;
         padding: 0 20px;
     }
 
     .quote-container {
-        padding: 25px 30px;
+        padding: 8px 20px;
     }
 }
 
 @media (max-width: 768px) {
     .greeting-header {
-        padding: 40px 0 25px;
+        padding: 18px 15px 12px;
     }
 
     #animatedGreeting {
-        font-size: 1.4rem;
-        letter-spacing: 0.06em;
+        font-size: 2rem;
+        letter-spacing: 0.02em;
     }
 
     #highlightedName {
-        font-size: 2.5rem;
-    }
-
-    #highlightedName::after {
-        width: 90%;
-        bottom: -8px;
+        font-size: 2.4rem;
     }
 
     .quote-text {
-        font-size: 1.2rem;
-        line-height: 1.7;
+        font-size: 0.95rem;
+        line-height: 1.6;
         padding: 0 15px;
     }
 
-    .quote-text::before,
-    .quote-text::after {
-        font-size: 2.5rem;
-    }
-
     .quote-author {
-        font-size: 0.85rem;
-    }
-
-    .quote-author::before,
-    .quote-author::after {
-        width: 20px;
+        font-size: 0.8rem;
     }
 
     .greeting-line {
         flex-direction: column;
-        gap: 12px;
+        gap: 8px;
     }
 
     .quote-container {
-        padding: 20px 25px;
-    }
-
-    .greeting-header::before,
-    .greeting-header::after {
-        font-size: 1rem;
-        opacity: 0.2;
+        padding: 8px 15px;
     }
 }
 
 @media (max-width: 480px) {
     .greeting-header {
-        padding: 30px 0 20px;
+        padding: 15px 10px 10px;
     }
 
     #animatedGreeting {
-        font-size: 1.2rem;
-        letter-spacing: 0.05em;
+        font-size: 1.6rem;
+        letter-spacing: 0.02em;
     }
 
     #highlightedName {
         font-size: 2rem;
     }
 
-    #highlightedName::after {
-        width: 95%;
-        bottom: -6px;
-        height: 1px;
-    }
-
     .quote-text {
-        font-size: 1.1rem;
-        line-height: 1.6;
+        font-size: 0.9rem;
+        line-height: 1.5;
         padding: 0 10px;
-    }
-
-    .quote-text::before {
-        left: -5px;
-        top: -5px;
-        font-size: 2rem;
-    }
-
-    .quote-text::after {
-        right: -5px;
-        bottom: -15px;
-        font-size: 2rem;
     }
 
     .quote-author {
         font-size: 0.75rem;
-        letter-spacing: 0.08em;
-    }
-
-    .quote-author::before,
-    .quote-author::after {
-        width: 15px;
-        margin: 0 8px;
+        letter-spacing: 0.03em;
     }
 
     .quote-container {
-        padding: 15px 20px;
-    }
-
-    .quote-container::before,
-    .quote-container::after {
-        width: 30px;
-        height: 30px;
-    }
-
-    .greeting-header::before {
-        left: 10%;
-        top: 15%;
-    }
-
-    .greeting-header::after {
-        right: 10%;
-        top: 25%;
+        padding: 6px 12px;
     }
 }
 
