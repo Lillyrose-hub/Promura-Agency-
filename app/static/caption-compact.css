@@ -19,12 +19,9 @@
     --error: #ef4444;
 }
 
-/* Ultra-Compact Header Section */
+/* Ultra-Compact Header Section - Clean Minimal */
 .library-header-ultra-compact {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 8px 12px;
+    padding: 8px 0;
     margin-bottom: 8px;
 }
 

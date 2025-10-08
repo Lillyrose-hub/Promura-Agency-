@@ -14,7 +14,7 @@ from PIL import Image
 import uuid
 
 class ContentLibrary:
-    def __init__(self, base_path: str = "/root/onlysnarf-dashboard/app/static/library"):
+    def __init__(self, base_path: str = "/opt/promura/app/static/library"):
         self.base_path = Path(base_path)
         self.metadata_file = self.base_path / "metadata.json"
         self.ensure_directories()

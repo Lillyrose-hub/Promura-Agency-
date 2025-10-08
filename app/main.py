@@ -386,6 +386,32 @@ async def get_history():
     """Get completed posts history"""
     return completed_posts
 
+@app.get("/api/motivational-quotes")
+async def get_motivational_quotes():
+    """Get all motivational quotes for the greeting header"""
+    try:
+        quotes_file = Path("app/data/motivational_quotes.json")
+        if quotes_file.exists():
+            with open(quotes_file, 'r', encoding='utf-8') as f:
+                quotes = json.load(f)
+            return quotes
+        else:
+            # Return a default quote if file doesn't exist
+            return [{
+                "id": 1,
+                "text": "Success doesn't come from what you do occasionally. It comes from what you do consistently.",
+                "category": "Hustle & Grind",
+                "author": "Marie Forleo"
+            }]
+    except Exception as e:
+        logger.error(f"Error loading motivational quotes: {e}")
+        return [{
+            "id": 1,
+            "text": "Great things never come from comfort zones.",
+            "category": "Resilience",
+            "author": "Anonymous"
+        }]
+
 @app.post("/schedule-post")
 async def schedule_post(
     request: Request,

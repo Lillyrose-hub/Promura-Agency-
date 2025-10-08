@@ -1,0 +1,502 @@
+[
+  {
+    "id": 1,
+    "text": "Grind now. ✨ Shine forever. 🌟",
+    "category": "Hustle & Grind"
+  },
+  {
+    "id": 2,
+    "text": "Hard work beats talent when talent doesn't work hard. 💯😎",
+    "category": "Hustle & Grind"
+  },
+  {
+    "id": 3,
+    "text": "Your hustle today = your legacy tomorrow. 🏆🔥",
+    "category": "Hustle & Grind"
+  },
+  {
+    "id": 4,
+    "text": "Success is the sum of small efforts repeated daily. 📈💪",
+    "category": "Hustle & Grind"
+  },
+  {
+    "id": 5,
+    "text": "The only place success comes before work is in the dictionary. 📚😂",
+    "category": "Hustle & Grind"
+  },
+  {
+    "id": 6,
+    "text": "Dream big. 🌌 Work harder. 💻",
+    "category": "Hustle & Grind"
+  },
+  {
+    "id": 7,
+    "text": "You didn't come this far to only come this far. 🚀💨",
+    "category": "Hustle & Grind"
+  },
+  {
+    "id": 8,
+    "text": "Hustle until your haters ask if you're hiring. 😏💼",
+    "category": "Hustle & Grind"
+  },
+  {
+    "id": 9,
+    "text": "Work like a boss, even if you're not one yet. 👔💅",
+    "category": "Hustle & Grind"
+  },
+  {
+    "id": 10,
+    "text": "The grind doesn't stop when you're tired. It stops when you're DONE. 🏁💥",
+    "category": "Hustle & Grind"
+  },
+  {
+    "id": 11,
+    "text": "Be proud of how far you've come. 🥳 Keep going! 🏃‍♂️",
+    "category": "Appreciating the Work"
+  },
+  {
+    "id": 12,
+    "text": "Every drop of sweat = a step closer to your dreams. 💦🌈",
+    "category": "Appreciating the Work"
+  },
+  {
+    "id": 13,
+    "text": "Your work matters. 💖 Keep making it count! ✨",
+    "category": "Appreciating the Work"
+  },
+  {
+    "id": 14,
+    "text": "Celebrate the small wins—they add up to BIG victories. 🎉🏆",
+    "category": "Appreciating the Work"
+  },
+  {
+    "id": 15,
+    "text": "Hard work is the magic behind every success story. 🎩🐇",
+    "category": "Appreciating the Work"
+  },
+  {
+    "id": 16,
+    "text": "You're building something AMAZING. Don't stop now! 🏗️💥",
+    "category": "Appreciating the Work"
+  },
+  {
+    "id": 17,
+    "text": "Your effort today = seeds for tomorrow's success. 🌱🌳",
+    "category": "Appreciating the Work"
+  },
+  {
+    "id": 18,
+    "text": "Appreciate the journey—it's making you STRONGER. 💪🛣️",
+    "category": "Appreciating the Work"
+  },
+  {
+    "id": 19,
+    "text": "Your dedication is your superpower. 🦸‍♂️💥",
+    "category": "Appreciating the Work"
+  },
+  {
+    "id": 20,
+    "text": "The work you do today = the foundation of your future. 🧱🏠",
+    "category": "Appreciating the Work"
+  },
+  {
+    "id": 21,
+    "text": "Push yourself, because no one else will do it for you. 💪😤",
+    "category": "Relentless Drive"
+  },
+  {
+    "id": 22,
+    "text": "Your limits are just excuses in disguise. 🚫💭",
+    "category": "Relentless Drive"
+  },
+  {
+    "id": 23,
+    "text": "Don't wait for opportunity. CREATE IT. 🛠️💡",
+    "category": "Relentless Drive"
+  },
+  {
+    "id": 24,
+    "text": "The harder you work, the 'luckier' you get. 🍀😉",
+    "category": "Relentless Drive"
+  },
+  {
+    "id": 25,
+    "text": "If it doesn't challenge you, it won't CHANGE you. 🔄💥",
+    "category": "Relentless Drive"
+  },
+  {
+    "id": 26,
+    "text": "Success is EARNED, not given. 🏅💸",
+    "category": "Relentless Drive"
+  },
+  {
+    "id": 27,
+    "text": "Your future self is cheering for you—DON'T LET THEM DOWN. 👻🔥",
+    "category": "Relentless Drive"
+  },
+  {
+    "id": 28,
+    "text": "Stay hungry. 🍕 Stay foolish. 🤪 Stay unstoppable. 🚀",
+    "category": "Relentless Drive"
+  },
+  {
+    "id": 29,
+    "text": "The only way to achieve the impossible = believe it's possible. 🌟💭",
+    "category": "Relentless Drive"
+  },
+  {
+    "id": 30,
+    "text": "You're capable of MORE than you know. PROVE IT. 💪🔥",
+    "category": "Relentless Drive"
+  },
+  {
+    "id": 31,
+    "text": "Alone we can do little; together we can do ANYTHING. 🙌💥",
+    "category": "Teamwork & Collaboration"
+  },
+  {
+    "id": 32,
+    "text": "Great teams turn 'I' into 'WE' and dreams into reality. 🌈✨",
+    "category": "Teamwork & Collaboration"
+  },
+  {
+    "id": 33,
+    "text": "Collaboration = the fuel for uncommon results. ⛽🚀",
+    "category": "Teamwork & Collaboration"
+  },
+  {
+    "id": 34,
+    "text": "A team that works hard together, WINS together. 🏆🤝",
+    "category": "Teamwork & Collaboration"
+  },
+  {
+    "id": 35,
+    "text": "Your team's success = YOUR success. 🎉💪",
+    "category": "Teamwork & Collaboration"
+  },
+  {
+    "id": 36,
+    "text": "Together, we're a force to be reckoned with. 💥👊",
+    "category": "Teamwork & Collaboration"
+  },
+  {
+    "id": 37,
+    "text": "The best ideas come from teams that PUSH each other. 🤼‍♂️💡",
+    "category": "Teamwork & Collaboration"
+  },
+  {
+    "id": 38,
+    "text": "Appreciate the people who help you GROW. 🌱💖",
+    "category": "Teamwork & Collaboration"
+  },
+  {
+    "id": 39,
+    "text": "Teamwork divides the task and MULTIPLIES the success. ➗➖➕",
+    "category": "Teamwork & Collaboration"
+  },
+  {
+    "id": 40,
+    "text": "A strong team turns challenges into OPPORTUNITIES. 🔄💎",
+    "category": "Teamwork & Collaboration"
+  },
+  {
+    "id": 41,
+    "text": "Challenges = opportunities wearing work clothes. 👔💼",
+    "category": "Overcoming Challenges"
+  },
+  {
+    "id": 42,
+    "text": "Every obstacle = a chance to prove how BAD you want it. 💥😤",
+    "category": "Overcoming Challenges"
+  },
+  {
+    "id": 43,
+    "text": "Pressure creates diamonds—and CHAMPIONS. 💎🏆",
+    "category": "Overcoming Challenges"
+  },
+  {
+    "id": 44,
+    "text": "The comeback is ALWAYS stronger than the setback. 🔄💪",
+    "category": "Overcoming Challenges"
+  },
+  {
+    "id": 45,
+    "text": "You've survived 100% of your worst days. KEEP GOING. 🏃‍♀️💨",
+    "category": "Overcoming Challenges"
+  },
+  {
+    "id": 46,
+    "text": "Tough times don't last, but TOUGH PEOPLE do. 💪🕒",
+    "category": "Overcoming Challenges"
+  },
+  {
+    "id": 47,
+    "text": "If it were easy, everyone would do it. But you're NOT everyone. 😎👑",
+    "category": "Overcoming Challenges"
+  },
+  {
+    "id": 48,
+    "text": "Your struggle today = your STRENGTH tomorrow. 💪🔥",
+    "category": "Overcoming Challenges"
+  },
+  {
+    "id": 49,
+    "text": "Don't fear failure. Fear NOT trying. 🚫💭",
+    "category": "Overcoming Challenges"
+  },
+  {
+    "id": 50,
+    "text": "The harder the battle, the SWEETER the victory. 🍭🏆",
+    "category": "Overcoming Challenges"
+  },
+  {
+    "id": 51,
+    "text": "Focus on the task, NOT the clock. ⏳🚫",
+    "category": "Productivity & Focus"
+  },
+  {
+    "id": 52,
+    "text": "Productivity = progress, NOT perfection. 📈💯",
+    "category": "Productivity & Focus"
+  },
+  {
+    "id": 53,
+    "text": "Small daily improvements = MASSIVE results. 🌱🌳",
+    "category": "Productivity & Focus"
+  },
+  {
+    "id": 54,
+    "text": "Do it NOW. Future you will THANK present you. 🙏😊",
+    "category": "Productivity & Focus"
+  },
+  {
+    "id": 55,
+    "text": "Stop waiting for motivation. JUST START. 🚀💥",
+    "category": "Productivity & Focus"
+  },
+  {
+    "id": 56,
+    "text": "Your focus determines your reality. 🎯💭",
+    "category": "Productivity & Focus"
+  },
+  {
+    "id": 57,
+    "text": "One step at a time = STILL moving forward. 🚶‍♂️💨",
+    "category": "Productivity & Focus"
+  },
+  {
+    "id": 58,
+    "text": "The secret of getting ahead = GETTING STARTED. 🏁💪",
+    "category": "Productivity & Focus"
+  },
+  {
+    "id": 59,
+    "text": "Don't watch the clock; DO what it does—keep going. ⏰💨",
+    "category": "Productivity & Focus"
+  },
+  {
+    "id": 60,
+    "text": "Productivity = making your dreams a REALITY. ✨💫",
+    "category": "Productivity & Focus"
+  },
+  {
+    "id": 61,
+    "text": "You're a LIMITED EDITION. Act like it. 🏷️💎",
+    "category": "Confidence & Self-Belief"
+  },
+  {
+    "id": 62,
+    "text": "Believe in yourself, even when no one else does. 💖💪",
+    "category": "Confidence & Self-Belief"
+  },
+  {
+    "id": 63,
+    "text": "Your confidence = your greatest ASSET. 💰😎",
+    "category": "Confidence & Self-Belief"
+  },
+  {
+    "id": 64,
+    "text": "You're not just part of the game—you're CHANGING it. 🎮🔥",
+    "category": "Confidence & Self-Belief"
+  },
+  {
+    "id": 65,
+    "text": "Doubt kills more dreams than failure EVER will. 🚫💭",
+    "category": "Confidence & Self-Belief"
+  },
+  {
+    "id": 66,
+    "text": "You're the CEO of your own life. ACT LIKE IT. 👔💼",
+    "category": "Confidence & Self-Belief"
+  },
+  {
+    "id": 67,
+    "text": "Your attitude determines your ALTITUDE. ✈️🌌",
+    "category": "Confidence & Self-Belief"
+  },
+  {
+    "id": 68,
+    "text": "Be a VOICE, not an echo. 🗣️🔊",
+    "category": "Confidence & Self-Belief"
+  },
+  {
+    "id": 69,
+    "text": "You're not 'too much.' You're EXACTLY ENOUGH. ✨💖",
+    "category": "Confidence & Self-Belief"
+  },
+  {
+    "id": 70,
+    "text": "Own your power. NO ONE ELSE WILL. 💥👑",
+    "category": "Confidence & Self-Belief"
+  },
+  {
+    "id": 71,
+    "text": "Fall seven times, stand up EIGHT. 💪🔄",
+    "category": "Resilience & Grit"
+  },
+  {
+    "id": 72,
+    "text": "Resilience = your SUPERPOWER. Use it. 🦸‍♀️💥",
+    "category": "Resilience & Grit"
+  },
+  {
+    "id": 73,
+    "text": "The only failure = QUITTING. 🚫💔",
+    "category": "Resilience & Grit"
+  },
+  {
+    "id": 74,
+    "text": "You're STRONGER than your excuses. 💪💥",
+    "category": "Resilience & Grit"
+  },
+  {
+    "id": 75,
+    "text": "Grit turns talent into ACHIEVEMENT. 🏅💎",
+    "category": "Resilience & Grit"
+  },
+  {
+    "id": 76,
+    "text": "Your perseverance will OUTLAST your pain. 🕒💪",
+    "category": "Resilience & Grit"
+  },
+  {
+    "id": 77,
+    "text": "Every setback = a setup for a COMEBACK. 🔄💥",
+    "category": "Resilience & Grit"
+  },
+  {
+    "id": 78,
+    "text": "The road to success = always under construction. 🚧🛣️",
+    "category": "Resilience & Grit"
+  },
+  {
+    "id": 79,
+    "text": "You're not broken, you're BREAKING BARRIERS. 💥🚧",
+    "category": "Resilience & Grit"
+  },
+  {
+    "id": 80,
+    "text": "Your grit = your GREATEST weapon. ⚔️💪",
+    "category": "Resilience & Grit"
+  },
+  {
+    "id": 81,
+    "text": "Work hard, but don't forget to LIVE harder. 💼🌴",
+    "category": "Work-Life Balance & Appreciation"
+  },
+  {
+    "id": 82,
+    "text": "Your well-being = part of your SUCCESS. 💖🧘‍♀️",
+    "category": "Work-Life Balance & Appreciation"
+  },
+  {
+    "id": 83,
+    "text": "Rest is NOT laziness—it's part of the hustle. 😴💤",
+    "category": "Work-Life Balance & Appreciation"
+  },
+  {
+    "id": 84,
+    "text": "Take pride in your work, but don't let it CONSUME you. 💼🚫",
+    "category": "Work-Life Balance & Appreciation"
+  },
+  {
+    "id": 85,
+    "text": "Balance = the key to SUSTAINABLE success. ⚖️💪",
+    "category": "Work-Life Balance & Appreciation"
+  },
+  {
+    "id": 86,
+    "text": "Appreciate the journey as much as the DESTINATION. 🛣️🌅",
+    "category": "Work-Life Balance & Appreciation"
+  },
+  {
+    "id": 87,
+    "text": "Your hard work DESERVES to be celebrated. 🎉🏆",
+    "category": "Work-Life Balance & Appreciation"
+  },
+  {
+    "id": 88,
+    "text": "Success is sweeter when you enjoy the RIDE. 🎢🍭",
+    "category": "Work-Life Balance & Appreciation"
+  },
+  {
+    "id": 89,
+    "text": "You're not just working for a paycheck—you're BUILDING a life. 🏠💖",
+    "category": "Work-Life Balance & Appreciation"
+  },
+  {
+    "id": 90,
+    "text": "Your effort is WORTH it. Never forget that. 💯💪",
+    "category": "Work-Life Balance & Appreciation"
+  },
+  {
+    "id": 91,
+    "text": "You're CLOSER than you think. Keep PUSHING. 💨💪",
+    "category": "Final Push & Encouragement"
+  },
+  {
+    "id": 92,
+    "text": "The finish line = the start of something GREATER. 🏁✨",
+    "category": "Final Push & Encouragement"
+  },
+  {
+    "id": 93,
+    "text": "Your breakthrough is NEAR. Don't stop NOW. 💥🔥",
+    "category": "Final Push & Encouragement"
+  },
+  {
+    "id": 94,
+    "text": "The last mile is the HARDEST—but also the most rewarding. 🏆💪",
+    "category": "Final Push & Encouragement"
+  },
+  {
+    "id": 95,
+    "text": "You're not almost there. You're EXACTLY where you need to be. 🎯💖",
+    "category": "Final Push & Encouragement"
+  },
+  {
+    "id": 96,
+    "text": "The only way to do great work = LOVE what you do. ❤️💼",
+    "category": "Final Push & Encouragement"
+  },
+  {
+    "id": 97,
+    "text": "Your effort today = your SUCCESS tomorrow. 🌱🌳",
+    "category": "Final Push & Encouragement"
+  },
+  {
+    "id": 98,
+    "text": "You're not just a drop in the ocean—you're the WAVE. 🌊💥",
+    "category": "Final Push & Encouragement"
+  },
+  {
+    "id": 99,
+    "text": "The world needs YOUR hustle. Keep GOING. 🌍💪",
+    "category": "Final Push & Encouragement"
+  },
+  {
+    "id": 100,
+    "text": "You're UNSTOPPABLE. Now go PROVE it. 🚀🔥",
+    "category": "Final Push & Encouragement"
+  }
+]
