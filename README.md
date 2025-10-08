@@ -2,9 +2,13 @@
 
 A comprehensive web dashboard for managing OnlyFans content across multiple models with advanced scheduling, queue management, real-time monitoring, and sophisticated media library system.
 
+## 🤖 Version 2.2 - Automation & AI Features
+
+**NEW**: Enterprise-level automation with auto-refresh metrics, bulk operations, smart scheduling AI, and post template system - all while preserving the dark feminine design.
+
 ## 🎨 Version 2.1 - Dark Feminine Header & Personalization
 
-**NEW**: Dynamic user greeting with dark feminine aesthetic, motivational quotes system, and enhanced typography with Playfair Display and Lora fonts.
+Dynamic user greeting with dark feminine aesthetic, motivational quotes system, and enhanced typography with Playfair Display and Lora fonts.
 
 ## 🎨 Version 2.0 - Complete Dark Theme Overhaul
 
@@ -12,7 +16,17 @@ Elegant dark theme with glass-morphism effects, SVG icon system, and comprehensi
 
 ## 🌟 Features
 
-### Dynamic Personalized Header (NEW v2.1)
+### 🤖 Automation & AI Systems (NEW v2.2)
+- **Auto-Refresh Metrics** - Real-time dashboard updates every 5 seconds without page reload
+- **Bulk Content Actions** - Delete or tag multiple media items simultaneously
+- **Smart Scheduling AI** - Analyzes posting history to recommend optimal posting times
+- **Post Templates** - Save and reuse recurring post patterns with usage tracking
+- **Scheduling Insights** - AI-powered analysis of best posting days and times
+- **Template Statistics** - Popular/recent templates with usage analytics
+- **Bulk Operations API** - Permission-based bulk delete and tag management
+- **Template Duplication** - Clone existing templates for quick variations
+
+### Dynamic Personalized Header (v2.1)
 - **User-Specific Greeting** - Dynamic "Good [morning/afternoon/evening], [YourName]!" with exclamation and blinking cursor
 - **Dark Feminine Aesthetic** - Elegant Playfair Display serif typography with soft purple-pink gradients
 - **Motivational Quotes** - 100+ rotating empowering quotes with typewriter animation
@@ -45,13 +59,14 @@ Elegant dark theme with glass-morphism effects, SVG icon system, and comprehensi
 
 ### System Monitoring & Metrics
 - **Live Status Indicator** - Real-time connection monitoring with animated pulse
-- **Auto-refresh** - Dashboard updates every 30 seconds
+- **Auto-refresh Metrics** - Dashboard updates every 5 seconds without page reload (NEW v2.2)
 - **Performance Metrics** - Comprehensive analytics dashboard
   - API success rate and response times
   - Post statistics (completed, scheduled, failed)
   - System status (uptime, memory usage)
-  - Recent activity feed
-  - Error tracking and logging
+  - Recent activity feed with timestamps
+  - Error tracking and logging with categorization
+- **Pause/Resume Controls** - Manual control over auto-refresh
 
 ## 🚀 Quick Start
 
@@ -97,6 +112,8 @@ http://localhost:8000
 onlysnarf-dashboard/
 ├── app/
 │   ├── main.py                     # FastAPI application
+│   ├── scheduling_ai.py            # Smart scheduling algorithm (NEW)
+│   ├── template_system.py          # Post template management (NEW)
 │   ├── onlysnarf_client.py         # OnlySnarf integration client (mock)
 │   ├── real_onlysnarf_client.py    # Production OnlySnarf client
 │   ├── profile_manager.py          # Profile management system
@@ -106,10 +123,13 @@ onlysnarf-dashboard/
 │   │   ├── index.html              # Main dashboard page
 │   │   ├── queue.html              # Queue management page
 │   │   └── metrics.html            # System metrics dashboard (NEW)
+│   ├── data/                       # Data storage (NEW)
+│   │   └── templates.json          # Template storage
 │   └── static/
-│       ├── style-elegant.css       # Dark theme styling (NEW)
-│       ├── icons.js                # SVG icon system (NEW)
-│       ├── content-library.js      # Library management UI (NEW)
+│       ├── style-elegant.css       # Dark theme styling
+│       ├── metrics-auto-refresh.js # Auto-refresh system (NEW)
+│       ├── icons.js                # SVG icon system
+│       ├── content-library.js      # Library management UI
 │       ├── dashboard.js            # Client-side JavaScript
 │       ├── images/
 │       │   ├── Promura.png         # Brand logo watermark (NEW)
@@ -127,7 +147,8 @@ onlysnarf-dashboard/
 │   └── conf/
 │       └── users/                  # User profile configs
 ├── uploads/                        # Uploaded media files
-├── CHANGELOG.md                    # Detailed change history (NEW)
+├── AUTOMATION_FEATURES.md          # Automation documentation (NEW)
+├── CHANGELOG.md                    # Detailed change history
 ├── README.md                       # This file
 └── requirements.txt                # Python dependencies
 ```
@@ -165,6 +186,13 @@ The dashboard includes a mock client for testing. To connect to real OnlySnarf:
 | `/api/queue/{id}/cancel` | POST | Cancel scheduled post |
 | `/api/queue/{id}/edit` | POST | Edit post content |
 | `/api/queue/{id}` | DELETE | Delete post |
+| `/api/library/bulk-delete` | POST | Bulk delete media items (NEW v2.2) |
+| `/api/library/bulk-tag` | POST | Bulk tag media items (NEW v2.2) |
+| `/api/scheduling/suggestions` | GET | Get AI scheduling suggestions (NEW v2.2) |
+| `/api/scheduling/insights` | GET | Get posting pattern insights (NEW v2.2) |
+| `/api/templates` | GET/POST | Manage post templates (NEW v2.2) |
+| `/api/templates/{id}` | GET/PUT/DELETE | Template operations (NEW v2.2) |
+| `/api/templates/{id}/use` | POST | Use template (track usage) (NEW v2.2) |
 
 ## 🎨 Features in Detail
 
@@ -294,6 +322,15 @@ For issues, questions, or suggestions:
 
 ## 🚀 Roadmap
 
+### Completed (v2.2)
+- [x] Auto-refresh metrics (5-second updates without reload)
+- [x] Bulk actions for content library (delete, tag)
+- [x] Smart scheduling AI with confidence scores
+- [x] Post template system with usage tracking
+- [x] Scheduling insights and pattern analysis
+- [x] Template duplication and statistics
+- [x] Comprehensive automation documentation
+
 ### Completed (v2.1)
 - [x] Dynamic personalized greeting header
 - [x] Dark feminine aesthetic with Playfair Display & Lora fonts
@@ -311,24 +348,25 @@ For issues, questions, or suggestions:
 - [x] Mobile responsiveness
 - [x] Library-to-post workflow
 
-### Planned (v2.2+)
-- [ ] User authentication system
+### Planned (v2.3+)
+- [ ] Enhanced user authentication with OAuth
 - [ ] Database integration (PostgreSQL/MySQL)
 - [ ] Video thumbnail extraction
-- [ ] Bulk media operations
 - [ ] Advanced tagging with autocomplete
-- [ ] AI-powered content suggestions
+- [ ] AI-powered content generation
 - [ ] Mobile app companion
-- [ ] Webhook integrations
-- [ ] Export/Import functionality
+- [ ] Webhook integrations for third-party tools
+- [ ] Export/Import functionality for templates
 - [ ] Multi-language support
+- [ ] Real-time collaboration features
 
 ---
 
 ## 📝 Documentation
 
-- **CHANGELOG.md**: Detailed version history and changes
 - **README.md**: This file - setup and feature documentation
+- **AUTOMATION_FEATURES.md**: Complete automation API reference (NEW v2.2)
+- **CHANGELOG.md**: Detailed version history and changes
 - **Code Comments**: Inline documentation throughout source files
 
 ---
@@ -359,6 +397,17 @@ For issues, questions, or suggestions:
 
 **Built with care for content creators by the PROMURA team**
 
-*Version: 2.1.0*
+*Version: 2.2.0*
 *Last Updated: October 8, 2025*
 *License: MIT*
+
+---
+
+## 🤖 Automation Features Quick Reference
+
+For detailed API documentation, see [AUTOMATION_FEATURES.md](AUTOMATION_FEATURES.md)
+
+**Auto-Refresh Metrics**: Updates every 5 seconds on `/metrics` page
+**Bulk Actions**: `POST /api/library/bulk-delete`, `POST /api/library/bulk-tag`
+**Scheduling AI**: `GET /api/scheduling/suggestions`, `GET /api/scheduling/insights`
+**Templates**: Full CRUD at `/api/templates` with usage tracking and statistics
