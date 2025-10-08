@@ -16,6 +16,8 @@ from app.content_library import content_library
 from app.caption_manager import caption_manager
 from app.auth_system import user_manager, audit_logger, get_current_user, require_permission, get_optional_user
 from app.burner_models import burner_manager, PRODUCTION_DEPLOYMENT_MEMORY
+from app.scheduling_ai import scheduling_ai
+from app.template_system import template_manager
 
 app = FastAPI()
 
@@ -679,6 +681,286 @@ async def delete_from_library(media_id: str):
         return {"success": True}
     else:
         raise HTTPException(status_code=404, detail="Media not found")
+
+# Bulk Actions for Content Library
+class BulkDeleteRequest(BaseModel):
+    media_ids: List[str]
+
+class BulkTagRequest(BaseModel):
+    media_ids: List[str]
+    tags: List[str]
+    action: str  # 'add' or 'replace'
+
+@app.post("/api/library/bulk-delete")
+async def bulk_delete_library_media(request: BulkDeleteRequest, current_user: Dict = Depends(require_permission("edit"))):
+    """Delete multiple media items from library"""
+    deleted_count = 0
+    failed_ids = []
+
+    for media_id in request.media_ids:
+        if content_library.delete_media(media_id):
+            deleted_count += 1
+        else:
+            failed_ids.append(media_id)
+
+    logger.log(f"Bulk delete: {deleted_count} items deleted by {current_user['username']}")
+
+    return {
+        "success": True,
+        "deleted_count": deleted_count,
+        "failed_ids": failed_ids,
+        "message": f"Successfully deleted {deleted_count} media items"
+    }
+
+@app.post("/api/library/bulk-tag")
+async def bulk_tag_library_media(request: BulkTagRequest, current_user: Dict = Depends(require_permission("edit"))):
+    """Add or replace tags for multiple media items"""
+    updated_count = 0
+    failed_ids = []
+
+    all_media = content_library.get_all_media()
+
+    for media_id in request.media_ids:
+        media_item = next((m for m in all_media if m['id'] == media_id), None)
+
+        if media_item:
+            if request.action == 'add':
+                # Add new tags to existing ones
+                existing_tags = set(media_item.get('tags', []))
+                new_tags = existing_tags.union(set(request.tags))
+                media_item['tags'] = list(new_tags)
+            else:  # replace
+                # Replace all tags
+                media_item['tags'] = request.tags
+
+            updated_count += 1
+        else:
+            failed_ids.append(media_id)
+
+    # Save updated metadata
+    content_library._save_metadata()
+
+    logger.log(f"Bulk tag {request.action}: {updated_count} items updated by {current_user['username']}")
+
+    return {
+        "success": True,
+        "updated_count": updated_count,
+        "failed_ids": failed_ids,
+        "message": f"Successfully updated tags for {updated_count} media items"
+    }
+
+# Smart Scheduling Suggestions
+@app.get("/api/scheduling/suggestions")
+async def get_scheduling_suggestions(count: int = 5, current_user: Dict = Depends(get_current_user)):
+    """Get AI-powered scheduling suggestions based on posting history"""
+    try:
+        # Load completed posts for analysis
+        for post in completed_posts:
+            scheduling_ai.add_post_result(post)
+
+        # Get optimal time suggestions
+        suggestions = scheduling_ai.get_optimal_times(num_suggestions=count)
+
+        return {
+            "success": True,
+            "suggestions": suggestions,
+            "message": f"Generated {len(suggestions)} scheduling suggestions"
+        }
+    except Exception as e:
+        logger.error(f"Error generating scheduling suggestions: {str(e)}")
+        return {
+            "success": False,
+            "suggestions": [],
+            "message": "Unable to generate suggestions"
+        }
+
+@app.get("/api/scheduling/insights")
+async def get_scheduling_insights(current_user: Dict = Depends(get_current_user)):
+    """Get insights about posting patterns"""
+    try:
+        # Load completed posts for analysis
+        for post in completed_posts:
+            scheduling_ai.add_post_result(post)
+
+        # Analyze patterns
+        insights = scheduling_ai.analyze_posting_patterns()
+
+        return {
+            "success": True,
+            "insights": insights
+        }
+    except Exception as e:
+        logger.error(f"Error analyzing scheduling patterns: {str(e)}")
+        return {
+            "success": False,
+            "insights": {},
+            "message": "Unable to analyze patterns"
+        }
+
+# Post Template System
+class TemplateCreateRequest(BaseModel):
+    name: str
+    content: str
+    models: List[str]
+    tags: Optional[List[str]] = []
+    media_ids: Optional[List[str]] = []
+    schedule_pattern: Optional[str] = None
+
+class TemplateUpdateRequest(BaseModel):
+    name: Optional[str] = None
+    content: Optional[str] = None
+    models: Optional[List[str]] = None
+    tags: Optional[List[str]] = None
+    media_ids: Optional[List[str]] = None
+    schedule_pattern: Optional[str] = None
+
+@app.post("/api/templates")
+async def create_template(request: TemplateCreateRequest, current_user: Dict = Depends(require_permission("edit"))):
+    """Create a new post template"""
+    try:
+        template = template_manager.create_template(
+            name=request.name,
+            content=request.content,
+            models=request.models,
+            tags=request.tags,
+            media_ids=request.media_ids,
+            schedule_pattern=request.schedule_pattern,
+            created_by=current_user['username']
+        )
+
+        logger.log(f"Template created: {request.name} by {current_user['username']}")
+
+        return {
+            "success": True,
+            "template": template,
+            "message": "Template created successfully"
+        }
+    except Exception as e:
+        logger.error(f"Error creating template: {str(e)}")
+        raise HTTPException(status_code=400, detail=str(e))
+
+@app.get("/api/templates")
+async def get_templates(tags: Optional[str] = None, current_user: Dict = Depends(get_current_user)):
+    """Get all templates with optional tag filtering"""
+    tags_list = tags.split(",") if tags else None
+    templates = template_manager.get_all_templates(tags=tags_list)
+
+    return {
+        "success": True,
+        "templates": templates,
+        "count": len(templates)
+    }
+
+@app.get("/api/templates/{template_id}")
+async def get_template(template_id: str, current_user: Dict = Depends(get_current_user)):
+    """Get a specific template by ID"""
+    template = template_manager.get_template(template_id)
+
+    if not template:
+        raise HTTPException(status_code=404, detail="Template not found")
+
+    return {
+        "success": True,
+        "template": template
+    }
+
+@app.put("/api/templates/{template_id}")
+async def update_template(
+    template_id: str,
+    request: TemplateUpdateRequest,
+    current_user: Dict = Depends(require_permission("edit"))
+):
+    """Update an existing template"""
+    updates = request.dict(exclude_unset=True)
+    template = template_manager.update_template(template_id, updates)
+
+    if not template:
+        raise HTTPException(status_code=404, detail="Template not found")
+
+    logger.log(f"Template updated: {template_id} by {current_user['username']}")
+
+    return {
+        "success": True,
+        "template": template,
+        "message": "Template updated successfully"
+    }
+
+@app.delete("/api/templates/{template_id}")
+async def delete_template(template_id: str, current_user: Dict = Depends(require_permission("admin"))):
+    """Delete a template"""
+    if template_manager.delete_template(template_id):
+        logger.log(f"Template deleted: {template_id} by {current_user['username']}")
+        return {
+            "success": True,
+            "message": "Template deleted successfully"
+        }
+    else:
+        raise HTTPException(status_code=404, detail="Template not found")
+
+@app.post("/api/templates/{template_id}/use")
+async def use_template(template_id: str, current_user: Dict = Depends(get_current_user)):
+    """Use a template (increments usage count and returns template data)"""
+    template = template_manager.use_template(template_id)
+
+    if not template:
+        raise HTTPException(status_code=404, detail="Template not found")
+
+    logger.log(f"Template used: {template['name']} by {current_user['username']}")
+
+    return {
+        "success": True,
+        "template": template
+    }
+
+@app.post("/api/templates/{template_id}/duplicate")
+async def duplicate_template(
+    template_id: str,
+    new_name: Optional[str] = None,
+    current_user: Dict = Depends(require_permission("edit"))
+):
+    """Duplicate an existing template"""
+    template = template_manager.duplicate_template(template_id, new_name)
+
+    if not template:
+        raise HTTPException(status_code=404, detail="Template not found")
+
+    logger.log(f"Template duplicated: {template_id} -> {template['id']} by {current_user['username']}")
+
+    return {
+        "success": True,
+        "template": template,
+        "message": "Template duplicated successfully"
+    }
+
+@app.get("/api/templates/stats/popular")
+async def get_popular_templates(limit: int = 10, current_user: Dict = Depends(get_current_user)):
+    """Get most popular templates"""
+    templates = template_manager.get_popular_templates(limit=limit)
+
+    return {
+        "success": True,
+        "templates": templates
+    }
+
+@app.get("/api/templates/stats/recent")
+async def get_recent_templates(limit: int = 10, current_user: Dict = Depends(get_current_user)):
+    """Get recently used templates"""
+    templates = template_manager.get_recent_templates(limit=limit)
+
+    return {
+        "success": True,
+        "templates": templates
+    }
+
+@app.get("/api/templates/stats/overview")
+async def get_template_statistics(current_user: Dict = Depends(get_current_user)):
+    """Get template usage statistics"""
+    stats = template_manager.get_statistics()
+
+    return {
+        "success": True,
+        "statistics": stats
+    }
 
 # Caption Library Routes
 @app.get("/captions", response_class=HTMLResponse)
