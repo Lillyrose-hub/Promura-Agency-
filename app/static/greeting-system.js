@@ -189,7 +189,7 @@ async function initGreetingSystem() {
 }
 
 /**
- * Rotate to next quote with animation
+ * Rotate to next quote with typing animation
  */
 async function rotateQuote() {
     const quoteElement = document.getElementById('rotatingQuote');
@@ -205,21 +205,27 @@ async function rotateQuote() {
 
     // Fade out current quote if it has content
     if (quoteElement.innerHTML.trim()) {
-        await fadeOut(quoteElement, 300);
+        await fadeOut(quoteElement, 200);
     }
 
     // Get next quote
     const quote = motivationalQuotes[currentQuoteIndex];
     currentQuoteIndex = (currentQuoteIndex + 1) % motivationalQuotes.length;
 
-    // Update quote text
+    // Create elements for typing animation
     quoteElement.innerHTML = `
-        <span class="quote-text">"${quote.text}"</span>
+        <span class="quote-text" id="quoteText"></span>
         ${quote.author ? `<span class="quote-author">— ${quote.author}</span>` : ''}
     `;
 
-    // Fade in new quote
-    await fadeIn(quoteElement, 500);
+    // Show container
+    quoteElement.style.opacity = '1';
+
+    // Type the quote text with animation
+    const quoteTextElement = document.getElementById('quoteText');
+    if (quoteTextElement) {
+        await typeText(quoteTextElement, `"${quote.text}"`, 30);
+    }
 
     console.log('Displayed quote:', quote.text.substring(0, 50) + '...');
 }
