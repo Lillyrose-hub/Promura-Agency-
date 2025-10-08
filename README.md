@@ -2,11 +2,24 @@
 
 A comprehensive web dashboard for managing OnlyFans content across multiple models with advanced scheduling, queue management, real-time monitoring, and sophisticated media library system.
 
+## 🎨 Version 2.1 - Dark Feminine Header & Personalization
+
+**NEW**: Dynamic user greeting with dark feminine aesthetic, motivational quotes system, and enhanced typography with Playfair Display and Lora fonts.
+
 ## 🎨 Version 2.0 - Complete Dark Theme Overhaul
 
-**NEW**: Elegant dark theme with glass-morphism effects, SVG icon system, and comprehensive content library for media management.
+Elegant dark theme with glass-morphism effects, SVG icon system, and comprehensive content library for media management.
 
 ## 🌟 Features
+
+### Dynamic Personalized Header (NEW v2.1)
+- **User-Specific Greeting** - Dynamic "Good [morning/afternoon/evening], [YourName]!" with exclamation and blinking cursor
+- **Dark Feminine Aesthetic** - Elegant Playfair Display serif typography with soft purple-pink gradients
+- **Motivational Quotes** - 100+ rotating empowering quotes with typewriter animation
+- **Sharp & Clear** - High-contrast text optimized for readability (greeting: 2.8rem, name: 3.2rem)
+- **Brand Colors** - Purple-pink gradient (#a99de8 → #e0b3d6) with accent highlights (#ff77c6)
+- **Performance Optimized** - Minimal animations, no heavy shadows or boxes
+- **Fully Responsive** - Scales perfectly across desktop, tablet, and mobile devices
 
 ### Multi-Model Management
 - **Searchable Model Selector** - Quick search and selection of target models
@@ -281,6 +294,14 @@ For issues, questions, or suggestions:
 
 ## 🚀 Roadmap
 
+### Completed (v2.1)
+- [x] Dynamic personalized greeting header
+- [x] Dark feminine aesthetic with Playfair Display & Lora fonts
+- [x] 100+ motivational quotes system
+- [x] Exclamation mark with blinking cursor animation
+- [x] Sharp brand gradient colors
+- [x] Performance optimizations (removed heavy animations)
+
 ### Completed (v2.0)
 - [x] Complete dark theme overhaul
 - [x] Content library system
@@ -290,7 +311,7 @@ For issues, questions, or suggestions:
 - [x] Mobile responsiveness
 - [x] Library-to-post workflow
 
-### Planned (v2.1+)
+### Planned (v2.2+)
 - [ ] User authentication system
 - [ ] Database integration (PostgreSQL/MySQL)
 - [ ] Video thumbnail extraction
@@ -316,14 +337,18 @@ For issues, questions, or suggestions:
 
 ### Color Palette
 - **Background**: `#0a0a0f`, `#151520`, `#1e1e2e`
-- **Accent**: `#FFDEE2` (soft pink)
-- **Text**: `#f8fafc`, `#cbd5e1`, `#94a3b8`
+- **Accent**: `#FFDEE2` (soft pink), `#ff77c6` (bright pink)
+- **Header Gradient**: `#a99de8` → `#e0b3d6` (purple-pink)
+- **Text**: `#f8fafc`, `#e8eaed`, `#cbd5e1`, `#d4c5e0`, `#b4a5c7`
+- **Cursors**: `#c77dff` (vivid purple)
 - **Status**: Success `#10b981`, Warning `#f59e0b`, Error `#ef4444`, Info `#3b82f6`
 
 ### Typography
 - **Primary**: Inter, -apple-system, BlinkMacSystemFont, Segoe UI
-- **Titles**: Helvetica Light, Optima, Playfair Display, Bodoni Moda
-- **Weight**: Ultra-light (200) for headers, Regular (400) for body
+- **Headers**: Playfair Display (serif, 2.8rem), Montserrat (sans-serif, 3.2rem)
+- **Quotes**: Lora (italic serif, 1.15rem)
+- **Titles**: Helvetica Light, Optima, Bodoni Moda
+- **Weight**: Medium (500-600) for headers, Regular (400) for body
 
 ### Effects
 - **Glass-morphism**: `backdrop-filter: blur(10px)`
@@ -334,6 +359,6 @@ For issues, questions, or suggestions:
 
 **Built with care for content creators by the PROMURA team**
 
-*Version: 2.0.0*
-*Last Updated: October 1, 2025*
+*Version: 2.1.0*
+*Last Updated: October 8, 2025*
 *License: MIT*
